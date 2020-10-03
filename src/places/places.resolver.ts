@@ -9,12 +9,12 @@ export class PlacesResolver {
   constructor(private readonly repoService: RepoService) {}
 
   @Query(() => [Place])
-  public async getAllPlaces(): Promise<Place[]> {
+  public async places(): Promise<Place[]> {
     return this.repoService.placeRepo.find();
   }
 
   @Query(() => Place)
-  public async getPlaceById(@Args('id') id: number): Promise<Place> {
+  public async place(@Args('id') id: number): Promise<Place> {
     return this.repoService.placeRepo.findOne(id);
   }
 
