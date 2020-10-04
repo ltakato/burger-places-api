@@ -22,6 +22,7 @@ type Query {
 
 type Mutation {
   createPlace(input: PlaceInput!): Place!
+  deletePlace(id: Float!): Place!
 }
 
 input PlaceInput {

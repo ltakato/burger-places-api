@@ -33,6 +33,15 @@ export class PlacesResolver {
     return response;
   }
 
+  @Mutation(() => Place)
+  public async deletePlace(@Args('id') id: number) : Promise<Place> {
+    const place = await this.repoService.placeRepo.findOne(id);
+
+    if (!place) return; // TODO: check error handling conventions for graphql!
+
+    return this.repoService.placeRepo.remove(place);
+  }
+
   @Subscription(() => Place)
   public placeCreated() {
     return pubSub.asyncIterator('placeCreated');
