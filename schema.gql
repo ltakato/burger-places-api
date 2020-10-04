@@ -28,3 +28,7 @@ input PlaceInput {
   name: String!
   address: String!
 }
+
+type Subscription {
+  placeCreated: Place!
+}

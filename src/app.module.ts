@@ -11,7 +11,7 @@ import {GraphQLModule} from "@nestjs/graphql";
 @Module({
   imports: [
     TypeOrmModule.forRoot(typeOrmOptions),
-    GraphQLModule.forRoot({ autoSchemaFile: 'schema.gql', playground: true }),
+    GraphQLModule.forRoot({ autoSchemaFile: 'schema.gql', playground: true, installSubscriptionHandlers: true }),
     RepoModule,
     PlacesModule,
   ],
